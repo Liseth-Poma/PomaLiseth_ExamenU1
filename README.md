@@ -55,14 +55,15 @@ El enfoque serverless permite crear aplicaciones altamente escalables, con menor
 ├── package.json          # Dependencias del proyecto
 └── README.md             # Documentación del proyecto
 
-##  Captura - Crear Proyecto
-![Crear Proyecyto](examenlis\capturas\crear.png)
+## 📸 Captura - Crear Proyecto
+![Crear Proyecto](examenlis/capturas/crear.png)
 
-##  Captura - Endpoints creados
-![Crear Endpoints](examenlis\capturas\crearempleado.png)
+## 📸 Captura - Endpoints creados
+![Crear Endpoints](examenlis/capturas/crearempleado.png)
 
-##  Captura - Crear empleados
-![Crear Empleado](examenlis\capturas\endpoints.png)
+## 📸 Captura - Crear empleados
+![Crear Empleado](examenlis/capturas/endpoints.png)
+
 ###
 Conclusiones
 Durante el desarrollo del proyecto se reforzaron conocimientos sobre servicios administrados de AWS, como Lambda y DynamoDB, así como el despliegue automatizado con Serverless Framework. Una de las principales dificultades fue la configuración correcta de los endpoints y los permisos IAM, lo cual se resolvió con documentación y pruebas.
