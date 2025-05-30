@@ -1,0 +1,67 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+#org: espe2025
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+#app: examen
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: examenlis
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource:
+        - arn:aws:dynamodb:us-east-1:459463945188:table/Empleado
+
+functions:
+  crearEmpleado:
+    handler: handler.crearEmpleado
+    events:
+      - http:
+          path: /empleado
+          method: post
+
+  obtenerEmpleados:
+    handler: handler.obtenerEmpleados
+    events:
+      - http:
+          path: empleados
+          method: get
+
+  obtenerEmpleado:
+    handler: handler.obtenerEmpleado
+    events:
+      - http:
+          path: empleados/{id}
+          method: get
+
+  actualizarEmpleado:
+    handler: handler.actualizarEmpleado
+    events:
+      - http:
+          path: empleados/{id}
+          method: put
+
+  eliminarEmpleado:
+    handler: handler.eliminarEmpleado
+    events:
+      - http:
+          path: empleados/{id}
+          method: delete
+
+resources:
+  Resources:
+    EmpleadoTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Empleado
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
